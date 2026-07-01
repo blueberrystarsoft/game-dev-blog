@@ -1,0 +1,73 @@
+<div id="age-gate">
+  <div class="box">
+    <h2>年齢確認</h2>
+
+    <p>
+      このサイトは成人向けゲームの開発記録です。
+    </p>
+
+    <p>
+      技術的な内容に加えて、作品のグラフィックやテーマについても言及することがあります。
+    </p>
+
+    <p>
+      18歳未満の方は閲覧をご遠慮ください。
+    </p>
+
+    <button id="enter">18歳以上なので閲覧する</button>
+  </div>
+</div>
+
+<script>
+  const gate = document.getElementById("age-gate");
+  const KEY = "ageConfirmedUntil";
+
+  const now = Date.now();
+  const expire = localStorage.getItem(KEY);
+
+  // 7日後まで有効
+  const VALID_MS = 7 * 24 * 60 * 60 * 1000;
+
+  if (expire && Number(expire) > now) {
+    if (gate) gate.style.display = "none";
+  } else {
+    // 期限切れ or 初回
+    if (gate) gate.style.display = "flex";
+  }
+
+  document.getElementById("enter")?.addEventListener("click", () => {
+    localStorage.setItem(KEY, String(Date.now() + VALID_MS));
+    if (gate) gate.style.display = "none";
+  });
+</script>
+
+<style>
+  #age-gate {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .box {
+    max-width: 500px;
+    padding: 2rem;
+    background: white;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+  }
+
+  .box p {
+    margin: 0.8rem 0;
+    line-height: 1.6;
+  }
+</style>

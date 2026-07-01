@@ -1,0 +1,35 @@
+---
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>年齢確認</title>
+  </head>
+
+  <body>
+    <h1>年齢確認</h1>
+
+    <p>
+      このサイトは成人向けゲームの開発記録です。
+    </p>
+
+    <p>
+      成人向けの話題や画像が掲載される場合があります。
+      18歳未満の方は閲覧をご遠慮ください。
+    </p>
+
+    <button id="enter">
+      18歳以上なので閲覧する
+    </button>
+
+    <script>
+      document
+        .getElementById("enter")
+        ?.addEventListener("click", () => {
+          localStorage.setItem("ageConfirmed", "true");
+          window.location.href = "/";
+        });
+    </script>
+  </body>
+</html>

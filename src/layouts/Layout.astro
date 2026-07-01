@@ -1,0 +1,39 @@
+---
+
+import "../styles/global.css";
+import AgeGate from "../components/AgeGate.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+
+	<AgeGate />
+  <body>
+
+    <header>
+      <h1>BLUEBERRY☆STAR 開発日記</h1>
+      <hr />
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer>
+      <hr />
+      <p>© 2026 BLUEBERRY_STAR</p>
+    </footer>
+
+  </body>
+</html>
