@@ -40,3 +40,23 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.site-header nav a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}

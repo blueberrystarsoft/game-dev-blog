@@ -2,7 +2,6 @@
 title: "髪の毛モデリング"
 date: 2026-07-01
 tags:
-  - Astro
   - Blender
   - 作業記録
 ---
